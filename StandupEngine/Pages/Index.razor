@@ -1,9 +1,32 @@
-﻿@page "/"
+﻿
+@page "/"
 
-<PageTitle>Index</PageTitle>
+    <Jumbotron>
+       <JumbotronTitle> Welcome to your Standup Engine!</JumbotronTitle>
+       <JumbotronSubtitle>Don't waste your time on thinking about the meeting order any more!</JumbotronSubtitle>
+    </Jumbotron>
 
-<h1>Hello, world!</h1>
+        <div class="row">
+    <div class="col-5">
+        <ListGroup Mode="ListGroupMode.Selectable" @bind-SelectedItem="selectedItem">
+            <ListGroupItem><Button Color="Color.Success" Outline><span class="oi oi-infinity" aria-hidden="true"></span>Choose all</Button></ListGroupItem>
+            <ListGroupItem Name="first">Placeholder</ListGroupItem>
+            <ListGroupItem>Placeholder</ListGroupItem>
+            <ListGroupItem>Placeholder</ListGroupItem>
+            <ListGroupItem>Placeholder</ListGroupItem>
+        </ListGroup>
+    </div>
+    <div class="col-2"></div>
+    <div class="col-5">
+        <ListGroup>
+            <ListGroupItem>Placeholder</ListGroupItem>
+            <ListGroupItem>Placeholder</ListGroupItem>
+            <ListGroupItem>Placeholder</ListGroupItem>
+            <ListGroupItem>Placeholder</ListGroupItem>
+        </ListGroup>
+    </div>
+    </div>
 
-Welcome to your new app.
-
-<SurveyPrompt Title="How is Blazor working for you?" />
+@code {
+    private string selectedItem = "first";
+}
