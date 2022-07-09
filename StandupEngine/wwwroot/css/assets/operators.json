@@ -1,0 +1,44 @@
+[
+  {
+    "name": "Sonja",
+    "class": "operator-sonja",
+    "avatar": "sonja.png",
+    "voice": "Norwegian Female",
+    "pitch": 1.0
+  },
+  {
+    "name": "Chonky Blob",
+    "class": "operator-blob",
+    "avatar": "chonky-blob.png",
+    "voice": "Norwegian Male",
+    "pitch": 0.8
+  },
+  {
+    "name": "Chicken",
+    "class": "operator-chicken",
+    "avatar": "chicken-thonk.png",
+    "voice": "Norwegian Female",
+    "pitch": 0.9
+  },
+  {
+    "name": "Flynn",
+    "class": "operator-flynn",
+    "avatar": "flynn.png",
+    "voice": "US English Male",
+    "pitch": 0.9
+  },
+  {
+    "name": "Shadow",
+    "class": "operator-shadow",
+    "avatar": "shadow.png",
+    "voice": "Norwegian Male",
+    "pitch": 0.6
+  },
+  {
+    "name": "Businessmann",
+    "class": "operator-business",
+    "avatar": "chicken-thonk.png",
+    "voice": "Swedish Male",
+    "pitch": 1.2
+  }
+]

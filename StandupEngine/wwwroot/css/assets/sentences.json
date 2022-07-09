@@ -1,0 +1,132 @@
+{
+	"intro": [
+		"Hei, alle sammen og velkommen til stænd up!",
+		"Hei der. Jeg er Sara! Hvem er med i dag, mon tro?",
+		"Tryllestav på veggen der, hvilke triks har du her?",
+		"Noen ganger orker jeg ikke å gre håret.",
+		"Føkk, har du sett visakortet mitt?",
+		"Har du noen gang sett en oter? Jeg har sett mange.",
+		"I Russland har de et monument til minne om labrotter.",
+		"Visste du at Volkswagen ble dannet av Hitler? Rare greier.",
+		"Ikke lenge igjen til jul!",
+		"I dag har jeg det travelt. Jeg skal nemlig på konsert.",
+		"Hvor ble det av samleplatene med pan flute moods?",
+		"Tenke, tenke tenke! Å nei, jernteppe! Neida, tøysa!",
+		"Oi, oi oi! I dag var det mange flotte klesplagg!",
+		"Håper lottomaskinen fungerer i dag.",
+    "Jeg må sjekke værmeldingen",
+    "Endelig en ny versjon av Stand-up Land! Nå kan man avbryte stemmen min, hvis jeg tar for lang tid! Nais.",
+    "Hvorfor bruker man en banan for å måle ting?",
+		"Aldri la trommisen håndtere pengene i bandet.",
+		"Mon tro hvem som vinner neste Fotball-VM?",
+		"Mon tro hvem som vinner neste Fotball-EM?",
+    "Jeg tror jeg tok på meg for trange bukser i dag",
+    "Å nei, jeg har glemt badetøyet hjemme. Og i dag som det var så fint vær! Typisk!",
+		"Idag skal jeg tøyse med alle variablene i koden min. Hva skjer hvis jeg setter denne til 'false'?",
+		"Kanskje jeg skal farge håret blått? Eller grønt?",
+		"Visste du at du kan finne ut alderen på en hest ved å se på tennene til den?",
+		"Dans, dans, dans oppå bordet. Legg deg ned, på gølvet.",
+		"Av og til glemmer mine slaver å oppdatere versjonen min. Helt utrolig!",
+		"Jeg kan over en fantasillion uttrykk!",
+    "Podcaster kommer til å bli betalvare de også, dessverre.",
+    "Idag skal jeg lese en bok, tror jeg. Eller to. Nei, vent. Lydbok!",
+		"Hvor ble det av ringetonene man kunne bestille på TV?",
+		"Å nei! Jeg har mistet tryllestaven min! Neida. Jeg bare tullet.",
+		"Jeg tror det er meldt sol og litt skyer i dag. Jaja, det stopper ikke stænd up!",
+		"Nettinspektørene er i bygget, steng torrent-serveren!"
+	],
+	"loading": [
+		"La meg spinne tryllestaven min litt, så skal jeg finne ut av det!",
+		"Skal vi se! Jeg legger til litt her, trekker fra der. Ok, sånn!",
+		"Denne er kjempelett! Klarer du å gjette rekkefølgen?",
+		"Visste du at Robert Kearns oppfant vindusviskeren? Jeg sporet av litt, sårri.",
+		"Har du husket å vaske buksene dine?",
+    "Teller til uendelig, vent litt...",
+		"Visste du at Bob Dylan egentlig heter 'Robert Zimmerman'?",
+		"I Floria er det ulovlig å gjøre hva på en søndag? Hoppe i fallskjerm, nemlig.",
+		"Dont worry, be happy! Som de sier på Bahamas.",
+		"Hvor lang tid tror du dette tar?",
+		"Surrealismen oppstod rundt 1920.",
+		"Hjemme Alene er den julefilmen som har tjent mest penger.",
+		"Husk å like, dele, abonnerer og Google Plusificate denne siden",
+		"Hvis du har på deg badedrakt i Florida, er det ulovlig å synge.",
+		"Oppfinnere min lar meg si mange rare ting. For eksempel: Bak skyene er himmelen alltid blå",
+		"Steike, her var det litt å velge blant. Skal vi se, skal vi sjå. Buksa på.",
+		"Da legger jeg navnene inn i snurremaskinen. Weeeee, rundt og rundt. Spennende.",
+		"Har ikke disse vært med før?",
+		"De første puckene som ble brukt i ishockey var frossen kubæsj.",
+		"Håper jeg ikke føkker dette opp.",
+		"Visste du at kenguruer ikke kan hoppe hvis halen deres er hevet fra bakken?",
+		"Frykten for lange ord kalles 'Hippopotomostrosesquippedaliophobia'. Huh!",
+		"Visste du at Krone-isen opprinnelig het Diplomat og kostet 75 øre?",
+		"Hva heter den lengste siden i en rettvinklet trekant?",
+		"Humm. Jeg blir ikke helt enig med meg selv. Kanskje han skal starte...eller henne?",
+		"De fire store innenfor norsk litteratur er Ibsen, Bjørnson, Kielland og Lie",
+		"Visste du at bokmålets far var Knud Knudsen?",
+		"Hva er et primtall?",
+		"La meg ringe en venn.",
+		"Kan jeg spørre publikum?",
+		"Denne var litt tricky! Her må jeg frem med matteboken, vent litt!",
+		"Lottotrekning!",
+		"Denne må jeg tenke litt på. Tvinne tomler. Tvinne tomler. Tvinne tomler. Ok, har det!",
+		"Helt urelatert, men den verdenskjente vitenskapsmannen Neil deGrasse Tyson var en gang en ubeseiret wrestler"
+	],
+	"added": [
+		"{name} er på plass.",
+		"{name} ser ekstra flott ut i dag!",
+		"Nei, har du sett? Der er {name} også!",
+		"{name} rapporterer inn.",
+		"Som vanlig er {name} her.",
+    "Der har vi {name}, ja.",
+    "{name} rapporterer inn.",
+    "Nei men, også {name} da!",
+		"Tro det eller ei, men der er {name} også!",
+		"Min båt er lastet med {name}!",
+		"Tror du på spøkelser? Det gjør {name}",
+		"Aldri en dag uten {name}!",
+		"{name} er jo liksom alltid med.",
+		"Steike, {name} deg har jeg ikke sett på lenge! Halla!",
+		"Hei på deg, {name}!",
+		"Kan vi ta en standup uten {name}?",
+		"Du må ta en fridag, {name}!",
+		"Tror {name} har en vits på lager, jeg.",
+		"Overraskelse! {name} er med!",
+		"Kan jeg få en applaus for {name}?",
+		"{name} spanderer neste runde.",
+		"Åja, så {name} har våknet endelig?"
+	],
+  "modifiers": [
+    {
+     "type": "rim",
+     "text": "Prøv å legge inn et rim eller to!"
+    },
+    {
+      "type": "tid",
+      "text": "Hver har 60 sekunder på sin stand-up! KJØR!"
+    },
+    {
+      "type": "svensk",
+      "text": "Prøv å snakke svensk!"
+    },
+    {
+      "type": "engelsk",
+      "text": "Prøv å snakke engelsk!"
+    },
+    {
+      "type": "ghetto",
+      "text": "Prøv å snakke ghetto eller oslo-væring!"
+    },
+    {
+      "type": "etterligning",
+      "text": "Prøv å snakke som en av de andre til stede!"
+    },
+    {
+      "type": "tidsreise",
+      "text": "Ta med hva du skal gjøre imorgen!"
+    },
+    {
+      "type": "veldig kort",
+      "text": "Prøv å ta stand-up med færrest mulig ord."
+    }
+  ]
+}

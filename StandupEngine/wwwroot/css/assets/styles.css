@@ -1,0 +1,129 @@
+/*Import font*/
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&display=swap');
+
+body {
+  height: 100vh;
+  text-align: center;
+  font-family: "PT Serif", Helvetica, "Open Sans", serif !important;
+  background: url('/static/mountains.jpg') bottom left no-repeat transparent;
+  background-size: cover;
+}
+
+.bg-black {
+  background-color: #111;
+}
+
+.operator-chicken {
+  background: url('/static/chicken-thonk.png') bottom right no-repeat transparent;
+}
+
+.operator-blob {
+  background: url('/static/chonky-blob.png') bottom right no-repeat transparent;
+}
+
+.operator-sonja {
+  background: url('/static/sonja.png') bottom right no-repeat transparent;
+}
+
+.operator-flynn {
+  background: url('/static/flynn.png') bottom right no-repeat transparent;
+}
+
+.operator-business {
+  background: url('/static/man.png') bottom right no-repeat transparent;
+}
+
+.operator-shadow {
+  background: url('/static/shadow.png') bottom right no-repeat transparent;
+}
+
+.container-fluid {
+  padding: 20px;
+}
+
+.stand-up {
+  z-index: 10;
+}
+
+.overflow-y-scroll {
+  /* overflow-y: auto; */
+}
+
+.operator {
+  width: 100%;
+  height: 400px;
+  bottom: 0;
+  z-index: 0;
+  background-size: 30%;
+}
+
+.bottom-right {
+  bottom: 0;
+  right: 0;
+}
+
+.top-right {
+  top: 0;
+  right: 0;
+}
+
+.chat-bubble {
+  position: relative;
+  padding: 15px;
+  width: 50%;
+  margin: 0 0 0 40%;
+  border: 5px solid #5a8f00;
+  color: #333;
+  background: #fff;
+  border-radius: 10px;
+}
+
+.chat-bubble::before {
+  content: "";
+  position: absolute;
+  bottom: -20px;
+  left: 90%;
+  border-width: 20px 20px 0;
+  border-style: solid;
+  border-color: #5a8f00 transparent;
+  display: block;
+  width: 0;
+}
+
+.chat-bubble::after {
+  content: "";
+  position: absolute;
+  bottom: -13px;
+  left: 91%;
+  border-width: 13px 13px 0;
+  border-style: solid;
+  border-color: #fff transparent;
+  display: block;
+  width: 0;
+}
+
+.app-version {
+  margin-top: 10px;
+}
+
+.text-large {
+  font-size: 2rem;
+}
+
+.text-green {
+  color: #218f8b
+}
+
+.text-blue {
+  color: #02a5e2
+}
+
+.text-red {
+  color: #ed1a3b
+}
+
+@keyframes cop-lights {
+  0%   {color: blue;}
+  50%  {color: red;}
+  100%   {color: blue;}
+}
