@@ -1,28 +1,67 @@
-﻿using Microsoft.AspNetCore.Components;
+﻿using Blazored.LocalStorage;
+using Microsoft.AspNetCore.Components;
 using StandupEngine.Services;
+using System.Text.Json;
 
 namespace StandupEngine.Components
 {
     public partial class ParticipantList : ComponentBase
     {
         [Inject]
-        public IEngine _engine { get; set; }
+        public IEngine Engine { get; set; }
+
+        [Inject]
+        public ISyncLocalStorageService LocalStorage { get; set; }  
 
         private string peopleList = "";
         private string selectedPeople = "";
 
         private List<string> ParticipantsReady = new();
-        private List<string> ParticipantsAdded = new();
-
-        public void ClearTheList(List<string> listToClear)
+        private List<string> Participants = new();
+               
+        protected override void OnInitialized()
         {
-            listToClear.Clear();
+            string storedParticipantsReady = LocalStorage.GetItem<string>("ParticipantsReady");
+
+            if (!string.IsNullOrEmpty(storedParticipantsReady))
+            {
+                ParticipantsReady = JsonSerializer.Deserialize<List<string>>(storedParticipantsReady);
+            }
+            else
+            {
+                LocalStorage.SetItem("ParticipantsReady", "");
+            }
+        }
+
+        public void ClearReadyList()
+        {
+            ParticipantsReady.Clear();
+            LocalStorage.RemoveItem("ParticipantsReady");
             StateHasChanged();
         }
 
-        protected  override void OnAfterRender(bool firstRender = true)
+        public void AddParticipantReady(string participant)
         {
+            ParticipantsReady.Add(participant);
+            StateHasChanged();
+        }
 
+        public void RemoveParticipantReady(string participant)
+        {
+            ParticipantsReady.Remove(participant);            
+            LocalStorage.SetItem("ParticipantsReady", JsonSerializer.Serialize(ParticipantsReady));
+            StateHasChanged();
+        }
+
+        public void AddParticipant(string participant)
+        {
+            Participants.Add(participant);
+            StateHasChanged();
+        }
+        public void RemoveParticipant(string participant)
+        {
+            Participants.Remove(participant);
+            StateHasChanged();
         }
     }
 }
