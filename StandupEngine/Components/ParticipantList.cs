@@ -13,8 +13,8 @@ namespace StandupEngine.Components
         [Inject]
         public ISyncLocalStorageService LocalStorage { get; set; }  
 
-        private string peopleList = "";
-        private string selectedPeople = "";
+        private string selectedReadyItem;
+        private string? newTeamMember;
 
         private List<string> ParticipantsReady = new();
         private List<string> Participants = new();
@@ -31,6 +31,8 @@ namespace StandupEngine.Components
             {
                 LocalStorage.SetItem("ParticipantsReady", "");
             }
+
+            selectedReadyItem = ParticipantsReady.FirstOrDefault();
         }
 
         public void ClearReadyList()
@@ -42,6 +44,9 @@ namespace StandupEngine.Components
 
         public void AddParticipantReady(string participant)
         {
+            if (participant is null)
+                return;
+
             ParticipantsReady.Add(participant);
             StateHasChanged();
         }

@@ -1,7 +1,7 @@
 ﻿
 <div class="row">
     <div class="col-5">
-        <ListGroup Mode="ListGroupMode.Selectable" @bind-SelectedItem="peopleList">
+        <ListGroup Mode="ListGroupMode.Selectable" @bind-SelectedItem="">
 
             <ListGroupItem>
                 <div class="row"><div class="col"><Button Color="Color.Success" Outline><Icon Name="IconName.Smile"></Icon>   Select all</Button></div><div class="col"></div><div class="col"><Button Color="Color.Danger" Outline><Icon Name="IconName.Delete"></Icon>   Remove All</Button></div></div>
@@ -9,14 +9,41 @@
 
             @for (int i = 0; i < ParticipantsReady.Count; i++)
             {
-                <ListGroupItem Name="@i.ToString()">@ParticipantsReady[i]</ListGroupItem>
+                <ListGroupItem Name="@i.ToString()">
+                    @ParticipantsReady[i] 
+                    <span class="oi oi-delete small" data-toggle="tooltip" data-placement="top" title="Remove"></span>>
+                </ListGroupItem>
             }
+
+            <ListGroupItem>
+                <div class="row">
+                    <div class="col"><TextEdit Placeholder="Add a new team member..." @bind-Text="newTeamMember" /></div>
+                    <div class="col"><Button Size=Size.ExtraSmall Color=Color.Secondary Outline Clicked="@(() => AddParticipantReady(newTeamMember))">
+                        <span class="oi oi-check"></span>
+                    </Button></div>
+                </div>
+            </ListGroupItem>
+
+            <ListGroupItem>
+                <div class="row">
+                    <div class="col">
+                        <Button Size=Size.ExtraSmall Color=Color.Success Outline Float=Float.Start Clicked="@(() => AddParticipantReady(newTeamMember))">
+                        <span class="oi oi-oi-arrow-circle-right"></span>
+                    </Button>
+                    </div>
+                    <div class="col">
+                        <Button Size=Size.ExtraSmall Color=Color.Success Outline Float=Float.Start Clicked="@(() => AddParticipantReady(newTeamMember))">
+                        <span class="oi oi-flash"></span> Add All!
+                    </Button>
+                    </div>
+                </div>
+            </ListGroupItem>
 
         </ListGroup>
     </div>
     <div class="col-2"></div>
     <div class="col-5">
-        <ListGroup Mode="ListGroupMode.Selectable" @bind-SelectedItem="selectedPeople">
+        <ListGroup>
             <ListGroupItem><div class=row><div class="col"></div><div class="col"><Button Color="Color.Danger" Outline Float="Float.Start"><Icon Name="IconName.Delete"></Icon>   Remove all</Button></div><div class="col"></div></div></ListGroupItem>
             <ListGroupItem>Placeholder</ListGroupItem>
             <ListGroupItem>Placeholder</ListGroupItem>
