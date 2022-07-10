@@ -1,0 +1,38 @@
+﻿
+<div class="row">
+    <div class="col-5">
+        <ListGroup Mode="ListGroupMode.Selectable" @bind-SelectedItem="peopleList">
+
+            <ListGroupItem>
+                <div class="row"><div class="col"><Button Color="Color.Success" Outline><Icon Name="IconName.Smile"></Icon>   Select all</Button></div><div class="col"></div><div class="col"><Button Color="Color.Danger" Outline><Icon Name="IconName.Delete"></Icon>   Remove All</Button></div></div>
+            </ListGroupItem>
+
+            @for (int i = 0; i < ParticipantsReady.Count; i++)
+            {
+                <ListGroupItem Name="@i.ToString()">@ParticipantsReady[i]</ListGroupItem>
+            }
+            
+            <ListGroupItem Name="first">Placeholder</ListGroupItem>
+            <ListGroupItem>Placeholder</ListGroupItem>
+            <ListGroupItem>Placeholder</ListGroupItem>
+            <ListGroupItem>Placeholder</ListGroupItem>
+        </ListGroup>
+    </div>
+    <div class="col-2"></div>
+    <div class="col-5">
+        <ListGroup Mode="ListGroupMode.Selectable" @bind-SelectedItem="selectedPeople">
+            <ListGroupItem><div class=row><div class="col"></div><div class="col"><Button Color="Color.Danger" Outline Float="Float.Start"><Icon Name="IconName.Delete"></Icon>   Remove all</Button></div><div class="col"></div></div></ListGroupItem>
+            <ListGroupItem>Placeholder</ListGroupItem>
+            <ListGroupItem>Placeholder</ListGroupItem>
+            <ListGroupItem>Placeholder</ListGroupItem>
+            <ListGroupItem>Placeholder</ListGroupItem>
+        </ListGroup>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12"><span></span></div>
+</div>
+
+@code {
+
+}

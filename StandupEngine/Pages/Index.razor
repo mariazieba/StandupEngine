@@ -1,32 +1,18 @@
 ﻿
 @page "/"
+@using StandupEngine.Services
+@using StandupEngine.Components
 
     <Jumbotron>
        <JumbotronTitle> Welcome to your Standup Engine!</JumbotronTitle>
        <JumbotronSubtitle>Don't waste your time on thinking about the meeting order any more!</JumbotronSubtitle>
     </Jumbotron>
 
-        <div class="row">
-    <div class="col-5">
-        <ListGroup Mode="ListGroupMode.Selectable" @bind-SelectedItem="selectedItem">
-            <ListGroupItem><Button Color="Color.Success" Outline><span class="oi oi-infinity" aria-hidden="true"></span>Choose all</Button></ListGroupItem>
-            <ListGroupItem Name="first">Placeholder</ListGroupItem>
-            <ListGroupItem>Placeholder</ListGroupItem>
-            <ListGroupItem>Placeholder</ListGroupItem>
-            <ListGroupItem>Placeholder</ListGroupItem>
-        </ListGroup>
-    </div>
-    <div class="col-2"></div>
-    <div class="col-5">
-        <ListGroup>
-            <ListGroupItem>Placeholder</ListGroupItem>
-            <ListGroupItem>Placeholder</ListGroupItem>
-            <ListGroupItem>Placeholder</ListGroupItem>
-            <ListGroupItem>Placeholder</ListGroupItem>
-        </ListGroup>
-    </div>
-    </div>
+    <ParticipantList />
+
+    <div class="row"><Button Color="Color.Success"><Icon Name="IconName.Lightbulb"></Icon>   Who will start today, Engine?</Button></div>
 
 @code {
-    private string selectedItem = "first";
+
+
 }
