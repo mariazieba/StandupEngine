@@ -48,18 +48,27 @@ namespace StandupEngine.Components
 
         public void AddParticipantReady(string participant)
         {
-            if (participant is null)
+            if (participant is null || ParticipantsReady.Contains(participant))
+            {
+                newTeamMember = string.Empty;
                 return;
+            }               
 
             ParticipantsReady.Add(participant);
             var participantsReadyJson = JsonSerializer.Serialize(ParticipantsReady);
             LocalStorage.SetItem(ParticipantsReadyKey, participantsReadyJson);
+            newTeamMember = string.Empty;
+            StateHasChanged();
+        }
+
+        public void AddAllParticipants()
+        {
+            Participants.AddRange(ParticipantsReady);
             StateHasChanged();
         }
 
         public void RemoveParticipantReady(string participant, bool all = false)
-        {
-            
+        {            
             ParticipantsReady.Remove(participant);
             LocalStorage.SetItem(ParticipantsReadyKey, JsonSerializer.Serialize(ParticipantsReady));            
             StateHasChanged();
@@ -80,6 +89,12 @@ namespace StandupEngine.Components
         public void RemoveParticipant(string participant)
         {
             Participants.Remove(participant);
+            StateHasChanged();
+        }
+
+        public void RemoveAllParticipants()
+        {
+            Participants.Clear();
             StateHasChanged();
         }
 
