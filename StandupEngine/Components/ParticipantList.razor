@@ -4,14 +4,23 @@
         <ListGroup Mode=@GetListMode() @bind-SelectedItem="selectedReadyItem">
 
             <ListGroupItem>
-                <div class="row"><div class="col"><Button Color="Color.Success" Outline><Icon Name="IconName.Smile"></Icon>   Select all</Button></div><div class="col"></div><div class="col"><Button Color="Color.Danger" Outline Clicked="@(() => ClearParticipantsReady())"><Icon Name="IconName.Delete"></Icon>    </Button></div></div>
+                <div class="row">
+                    <div class="col">
+                        <Button Color="Color.Success" Outline Float="Float.Start" Size=Size.Small><Icon Name="IconName.Smile"></Icon>   Select all</Button>
+                    </div>
+                    <div class="col">
+                        <Button Color="Color.Danger" Outline Float="Float.End" Size=Size.Small Clicked="@(() => ClearParticipantsReady())">
+                            <Icon Name="IconName.Delete"></Icon>    Remove all
+                        </Button>
+                    </div>
+                </div>
             </ListGroupItem>
 
             @foreach (var ready in ParticipantsReady)
             {
                 <ListGroupItem Name="@($"{ready}{ParticipantsReady.IndexOf(ready)}")" Clicked="@(() => AddParticipant(ready))">
                     @ready
-                    <Button Color=Color.Default Size=Size.ExtraSmall Type=ButtonType.Link Float=Float.End Clicked="@(() => RemoveParticipantReady(ready))">
+                    <Button Color=Color.Default Size=Size.Small Type=ButtonType.Link Float=Float.End Clicked="@(() => RemoveParticipantReady(ready))">
                         <span class="oi oi-delete"></span>
                     </Button>
                 </ListGroupItem>
@@ -20,18 +29,20 @@
             <ListGroupItem>
                 <div class="row">
                     <div class="col"><TextEdit Placeholder="Add a new team member..." @bind-Text="newTeamMember" /></div>
-                    <div class="col"><Button Size=Size.ExtraSmall Color=Color.Secondary Outline Clicked="@(() => AddParticipantReady(newTeamMember))">
-                        <span class="oi oi-check"></span>
-                    </Button></div>
+                    <div class="col">
+                        <Button Size=Size.Small Color=Color.Secondary Outline Clicked="@(() => AddParticipantReady(newTeamMember))">
+                            <span class="oi oi-check"></span>
+                        </Button>
+                    </div>
                 </div>
             </ListGroupItem>
 
             <ListGroupItem>
                 <div class="row">
                     <div class="col">
-                        <Button Size=Size.ExtraSmall Color=Color.Success Outline Float=Float.End Clicked="@(() => AddAllParticipants())">
-                        <span class="oi oi-flash"></span> Add All!
-                    </Button>
+                        <Button Size=Size.Small Color=Color.Success Outline Float=Float.End Clicked="@(() => AddAllParticipants())">
+                            <span class="oi oi-flash"></span> Add All!
+                        </Button>
                     </div>
                 </div>
             </ListGroupItem>
@@ -46,15 +57,15 @@
                     <div class="col">
                         <Button Color="Color.Danger" Outline Float="Float.End" Clicked="@(() => RemoveAllParticipants())">
                             <span class="oi oi-delete small"></span>   Remove all
-                            </Button>
-                   </div>
+                        </Button>
+                    </div>
                 </div>
-                </ListGroupItem>
-            @foreach(var participant in Participants)
+            </ListGroupItem>
+            @foreach (var participant in Participants)
             {
                 <ListGroupItem>
                     @participant
-                    <Button Color=Color.Default Size=Size.ExtraSmall Type=ButtonType.Link Float=Float.End Clicked="@(() => RemoveParticipant(participant))">
+                    <Button Color=Color.Default Size=Size.Small Type=ButtonType.Link Float=Float.End Clicked="@(() => RemoveParticipant(participant))">
                         <span class="oi oi-delete"></span>
                     </Button>
                 </ListGroupItem>
