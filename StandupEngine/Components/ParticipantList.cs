@@ -1,4 +1,5 @@
 ﻿using Blazored.LocalStorage;
+using Blazorise;
 using Microsoft.AspNetCore.Components;
 using StandupEngine.Services;
 using System.Text.Json;
@@ -18,6 +19,9 @@ namespace StandupEngine.Components
 
         private List<string> ParticipantsReady = new();
         private List<string> Participants = new();
+
+        private const string ParticipantsReadyKey = "ParticipantsReady";
+
                
         protected override void OnInitialized()
         {
@@ -29,7 +33,7 @@ namespace StandupEngine.Components
             }
             else
             {
-                LocalStorage.SetItem("ParticipantsReady", "");
+                LocalStorage.SetItem(ParticipantsReadyKey, "");
             }
 
             selectedReadyItem = ParticipantsReady.FirstOrDefault();
@@ -38,7 +42,7 @@ namespace StandupEngine.Components
         public void ClearReadyList()
         {
             ParticipantsReady.Clear();
-            LocalStorage.RemoveItem("ParticipantsReady");
+            LocalStorage.RemoveItem(ParticipantsReadyKey);
             StateHasChanged();
         }
 
@@ -48,13 +52,23 @@ namespace StandupEngine.Components
                 return;
 
             ParticipantsReady.Add(participant);
+            var participantsReadyJson = JsonSerializer.Serialize(ParticipantsReady);
+            LocalStorage.SetItem(ParticipantsReadyKey, participantsReadyJson);
             StateHasChanged();
         }
 
-        public void RemoveParticipantReady(string participant)
+        public void RemoveParticipantReady(string participant, bool all = false)
         {
-            ParticipantsReady.Remove(participant);            
-            LocalStorage.SetItem("ParticipantsReady", JsonSerializer.Serialize(ParticipantsReady));
+            
+            ParticipantsReady.Remove(participant);
+            LocalStorage.SetItem(ParticipantsReadyKey, JsonSerializer.Serialize(ParticipantsReady));            
+            StateHasChanged();
+        }
+
+        public void ClearParticipantsReady()
+        {
+            ParticipantsReady.Clear();
+            LocalStorage.RemoveItem(ParticipantsReadyKey);
             StateHasChanged();
         }
 
@@ -67,6 +81,18 @@ namespace StandupEngine.Components
         {
             Participants.Remove(participant);
             StateHasChanged();
+        }
+
+        private ListGroupMode GetListMode()
+        {
+            if (string.IsNullOrEmpty(selectedReadyItem))
+            {
+                return ListGroupMode.Static;
+            }
+            else
+            {
+                return ListGroupMode.Selectable;
+            }
         }
     }
 }
