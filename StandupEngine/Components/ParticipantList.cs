@@ -21,7 +21,6 @@ namespace StandupEngine.Components
         private List<string> Participants = new();
 
         private const string ParticipantsReadyKey = "ParticipantsReady";
-
                
         protected override void OnInitialized()
         {

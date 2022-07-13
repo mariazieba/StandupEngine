@@ -1,12 +1,11 @@
 ﻿using StandupEngine.Shared;
 using System.Text.Json;
-using static System.Net.WebRequestMethods;
 
 namespace StandupEngine.Services
 {
     public class Engine : IEngine
     {
-        private PromptObject _allPrompts;
+        private PromptObject? _allPrompts;
         private Random _random;
 
         public Engine()
@@ -14,10 +13,9 @@ namespace StandupEngine.Services
             _random = new Random();
         }
 
-        public string GetGreeting()
+        public async Task<string> GetGreetingAsync()
         {
-            var index = _random.Next(_allPrompts.intro.Length);
-            return _allPrompts.intro[index];
+            return await FetchTheJoke(true);
         }
 
         public string GetMeetingOrder(List<string> registeredParticipants)
@@ -35,29 +33,35 @@ namespace StandupEngine.Services
         public string GetTwist()
         {
             var index = _random.Next(_allPrompts.modifiers.Length);
-            return _allPrompts.modifiers[index].text;
+            return _allPrompts.modifiers[index];
         }
 
-        public string GetWaitingText()
+        public async Task<string> GetWaitingTextAsync()
         {
-            var index = _random.Next(_allPrompts.loading.Length);
-            return _allPrompts.loading[index];
-        }
-
-        private void LoadAllPrompts()
-        {
-            using HttpClient httpClient = new();
-            string jsonPrompts = httpClient.GetStringAsync(@"assets\sentences.json").Result;
-
-            if (string.IsNullOrEmpty(jsonPrompts))
-            {
-                throw new ApplicationException("Oh no! There is no funny things to be said!");
-            }            
+            return await FetchTheJoke(false);
         }
 
         public void LoadPrompts(string jsonPrompts)
         {
             _allPrompts = JsonSerializer.Deserialize<PromptObject>(jsonPrompts);
+        }
+
+        private async Task<string> FetchTheJoke(bool firstGreeting)
+        {
+            using (var client = new HttpClient())
+            {
+                client.DefaultRequestHeaders.Add("Accept", "text/plain");
+                var newJoke = await client.GetAsync("https://icanhazdadjoke.com/");
+
+                if (newJoke.IsSuccessStatusCode && newJoke is not null)
+                {
+                    return await newJoke.Content.ReadAsStringAsync();
+                }
+                else
+                {
+                    return firstGreeting ? "Hi people and welcome to your daily stand-up! No joke this time." : "Still no jokes for you!";
+                }
+            }
         }
     }
 }

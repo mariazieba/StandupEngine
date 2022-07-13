@@ -21,7 +21,7 @@ builder.Services
     .AddBootstrap5Providers()
     .AddFontAwesomeIcons();
 
-builder.Services.AddSingleton<IEngine>(e => new Engine());
+builder.Services.AddSingleton<IEngine, Engine>();
 
 builder.Services.AddBlazoredLocalStorage();
 
