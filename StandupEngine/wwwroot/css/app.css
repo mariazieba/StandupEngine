@@ -4,7 +4,7 @@ html, body {
     height: 100vh;
     text-align: center;
     font-family: "PT Serif", Helvetica, "Open Sans", serif !important;
-    background-image: linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.7)), url('laptop.png');
+    background-image: linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.7)), url('../static/laptop.png');
     background-repeat: repeat-x repeat-y;
 }
 
@@ -71,6 +71,18 @@ a, .btn-link {
 /*Import font*/
 @import url('https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&display=swap');
 
+.sentence {
+    font-size: 1.2rem;
+}
+
+    .sentence::first-letter {
+        color: #02A5E2;
+        font-size: 4rem;
+        font-weight: bold;
+        margin-right: -1px;
+        line-height: 1;
+    }
+
 .bg-black {
     background-color: #111;
 }
@@ -101,14 +113,6 @@ a, .btn-link {
 
 .container-fluid {
     padding: 20px;
-}
-
-.stand-up {
-    z-index: 10;
-}
-
-.overflow-y-scroll {
-    /* overflow-y: auto; */
 }
 
 .operator {

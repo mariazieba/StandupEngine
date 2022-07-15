@@ -10,17 +10,27 @@
         <h1>Welcome to Dad Joke powered daily standup engine!</h1>
     </div>
     <div class="row">
-        <DialogueJumbotron />
+        <CascadingValue Value="CurrentText">
+            <DialogueJumbotron />
+        </CascadingValue>
     </div>
     <div class="row">
         <ParticipantList />
     </div>
     <div class="row">
-        <div class="col"></div><div class="col"><Button Color="Color.Success"><Icon Name="IconName.Lightbulb" Float=Float.Default></Icon>   Who will start today, Engine?</Button></div>
+        <div class="col"></div>
+        <div class="col">
+            <Button Color="Color.Success" Clicked="@StartShuffling"><Icon Name="IconName.Lightbulb" Float=Float.Default></Icon>   Who will start today, Engine?</Button>
+        </div>
         <div class="col"></div>
     </div>
 </div>
-    @code {
+
+@code {
+
+    [CascadingParameter]
+    public string CurrentText { get; set; }
+
     protected override async Task OnInitializedAsync()
     {
         string jsonPrompts = await _httpClient.GetStringAsync(@"assets\sentences.json");
@@ -28,5 +38,10 @@
         _engine.LoadPrompts(jsonPrompts);
     }
 
-
+    private async Task StartShuffling()
+    {
+        CurrentText = await _engine.GetJokeAsync(false);
+        
     }
+
+}

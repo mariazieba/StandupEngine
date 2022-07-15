@@ -13,9 +13,9 @@ namespace StandupEngine.Services
             _random = new Random();
         }
 
-        public async Task<string> GetGreetingAsync()
+        public async Task<string> GetJokeAsync(bool firstTimeRender)
         {
-            return await FetchTheJoke(true);
+            return await FetchTheJoke(firstTimeRender);
         }
 
         public string GetMeetingOrder(List<string> registeredParticipants)
@@ -36,17 +36,12 @@ namespace StandupEngine.Services
             return _allPrompts.modifiers[index];
         }
 
-        public async Task<string> GetWaitingTextAsync()
-        {
-            return await FetchTheJoke(false);
-        }
-
         public void LoadPrompts(string jsonPrompts)
         {
             _allPrompts = JsonSerializer.Deserialize<PromptObject>(jsonPrompts);
         }
 
-        private async Task<string> FetchTheJoke(bool firstGreeting)
+        private async Task<string> FetchTheJoke(bool firstTimeRender)
         {
             using (var client = new HttpClient())
             {
@@ -59,7 +54,7 @@ namespace StandupEngine.Services
                 }
                 else
                 {
-                    return firstGreeting ? "Hi people and welcome to your daily stand-up! No joke this time." : "Still no jokes for you!";
+                    return firstTimeRender ? "Hi people and welcome to your daily stand-up! No joke this time." : "Still no jokes for you!";
                 }
             }
         }
