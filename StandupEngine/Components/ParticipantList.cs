@@ -8,6 +8,11 @@ namespace StandupEngine.Components
 {
     public partial class ParticipantList : ComponentBase
     {
+        /*
+         attribute icon
+        <a href="https://www.flaticon.com/free-icons/nerd" title="nerd icons">Nerd icons created by Freepik - Flaticon</a>
+        */
+
         [Inject]
         public IEngine Engine { get; set; }
 

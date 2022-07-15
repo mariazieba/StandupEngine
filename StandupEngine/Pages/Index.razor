@@ -5,20 +5,28 @@
 @inject IEngine _engine
 @inject HttpClient _httpClient
 
-<Jumbotron>
-    <JumbotronTitle> Welcome to your Standup Engine!</JumbotronTitle>
-    <JumbotronSubtitle>Don't waste your time on thinking about the meeting order any more!</JumbotronSubtitle>
-</Jumbotron>
-
-<ParticipantList />
-
-<div class="row"><Button Color="Color.Success"><Icon Name="IconName.Lightbulb"></Icon>   Who will start today, Engine?</Button></div>
-
-@code {
+<div class="container">
+    <div class="row bg-light p-3 rounded mb-3" id="title">
+        <h1>Welcome to Dad Joke powered daily standup engine!</h1>
+    </div>
+    <div class="row">
+        <DialogueJumbotron />
+    </div>
+    <div class="row">
+        <ParticipantList />
+    </div>
+    <div class="row">
+        <div class="col"></div><div class="col"><Button Color="Color.Success"><Icon Name="IconName.Lightbulb" Float=Float.Default></Icon>   Who will start today, Engine?</Button></div>
+        <div class="col"></div>
+    </div>
+</div>
+    @code {
     protected override async Task OnInitializedAsync()
     {
         string jsonPrompts = await _httpClient.GetStringAsync(@"assets\sentences.json");
-        
+
         _engine.LoadPrompts(jsonPrompts);
     }
-}
+
+
+    }
