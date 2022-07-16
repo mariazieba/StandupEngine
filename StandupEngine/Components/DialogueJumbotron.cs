@@ -12,12 +12,10 @@ namespace StandupEngine.Components
         public IEngine Engine { get; set; }
         [CascadingParameter]
         public string CurrentText { get; set; }
-        public string Operator { get; set; }
 
         protected override async Task OnInitializedAsync()
         {
             CurrentText = await Engine.GetJokeAsync(true);
-            Operator = "operator-chicken";
         }
     }
 }
