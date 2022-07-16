@@ -128,28 +128,10 @@ a, .btn-link {
     bottom: 0;
     right: 0;
 }
-
-.top-right {
-    top: 0;
-    right: 0;
-}
-
-.app-version {
-    margin-top: 10px;
-}
-
-.text-large {
-    font-size: 2rem;
-}
-
-.text-green {
-    color: #218f8b
-}
-
-.text-blue {
-    color: #02a5e2
-}
-
-.text-red {
-    color: #ed1a3b
+.progress-bar {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
 }

@@ -1,0 +1,41 @@
+﻿@if (ShowProgress)
+{
+    <div class="row">
+        <Progress>
+            <ProgressBar Animated Value=@CurrentProgress></ProgressBar>
+        </Progress>
+    </div>
+}
+
+@code {
+
+    [CascadingParameter]
+    public bool ShowProgress { get; set; }
+
+    private int CurrentProgress { get; set; }
+
+    protected override void OnAfterRender(bool firstRender)
+    {
+        base.OnAfterRender(firstRender);
+
+        if (!firstRender)
+        {
+            FakeProgress();
+        }
+
+        base.OnInitialized();
+    }
+
+    private async Task FakeProgress()
+    {
+        for (int i = 0; i <= 100; i += 20)
+        {
+            await Task.Delay(500);
+            CurrentProgress = i;
+            StateHasChanged();
+        }
+
+        ShowProgress = false;
+        CurrentProgress = 0;
+    }
+}

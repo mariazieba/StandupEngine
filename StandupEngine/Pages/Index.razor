@@ -23,10 +23,6 @@
             <Button Color="Color.Success" Clicked="@StartShuffling"><Icon Name="IconName.Lightbulb" Float=Float.Default></Icon>   Who will start today, Engine?</Button>
         </div>
         <div class="col"></div>
-        @if (ShowProgress)
-        {
-            <div class="row"><progress class="nes-progress is-success" value="@currentProgress" max="100"></progress></div>
-        }
     </div>
 </div>
 
@@ -34,10 +30,8 @@
 
     [CascadingParameter]
     public string CurrentText { get; set; }
-
+    [CascadingParameter]
     private bool ShowProgress { get; set; } = false;
-    private int currentProgress = 0;
-
 
     protected override async Task OnInitializedAsync()
     {
@@ -47,24 +41,14 @@
     }
 
     private async Task StartShuffling()
-    {   
+    {
         ShowProgress = true;
         StateHasChanged();
 
-        CurrentText = await _engine.GetJokeAsync(false);        
-        FakeProgress();
+        CurrentText = await _engine.GetJokeAsync(false);
+        Thread.Sleep(5000);
+        CurrentText = _engine.GetMeetingOrder();
     }
 
-    private void FakeProgress()
-    {
-        while(currentProgress <= 100)
-        {
-            currentProgress += 20;
-            StateHasChanged();
-            Thread.Sleep(500);
-        }
 
-        currentProgress = 0;
-        ShowProgress = false;
-    }
 }
