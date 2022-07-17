@@ -24,5 +24,4 @@ builder.Services
 builder.Services.AddSingleton<Engine>();
 builder.Services.AddBlazoredLocalStorage();
 
-
 await builder.Build().RunAsync();

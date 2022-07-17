@@ -1,12 +1,17 @@
 ﻿<div class="container position-relative">
     <div class="row">
-        <div class="col-6">
-            <ListGroup Mode=@GetListMode() @bind-SelectedItem="selectedReadyItem" Float=Float.Start>
+        <div class="col">
+            <ListGroup Mode=@GetListMode() @bind-SelectedItem="selectedReadyItem" Float=Float.Default Overflow=Overflow.Auto Height="Height.Is75" Border=Border.Dark>
 
-                <ListGroupItem>
+                <ListGroupItem TextOverflow=TextOverflow.Wrap>
                     <div class="row">
                         <div class="col">
-                            <Button Color="Color.Danger" Outline Float="Float.End" Size=Size.Small Clicked="@(() => ClearParticipantsReady())">
+                            <Button Size=Size.ExtraSmall Color=Color.Success Outline Float=Float.End Clicked="@(() => AddAllParticipants())">
+                                <span class="oi oi-flash"></span> Add All!
+                            </Button>
+                        </div>
+                        <div class="col">
+                            <Button Color="Color.Danger" Outline Float=Float.End Size=Size.ExtraSmall Clicked="@(() => ClearParticipantsReady())">
                                 <Icon Name="IconName.Delete"></Icon>    Remove all
                             </Button>
                         </div>
@@ -22,36 +27,30 @@
                         </Button>
                     </ListGroupItem>
                 }
-
                 <ListGroupItem>
                     <div class="row">
                         <div class="col"><TextEdit Placeholder="Add new..." @bind-Text="newTeamMember" MaxLength="20" /></div>
                         <div class="col">
-                            <Button Size=Size.Small Color=Color.Secondary Outline Clicked="@(() => AddParticipantReady(newTeamMember))">
-                                <span class="oi oi-check"></span>
+                            <Button Size=Size.ExtraSmall Clicked="@(() => AddParticipantReady(newTeamMember))">
+                                <span class="nes-badge is-icon is-small">
+                                    <span class="is-warning"><span class="oi oi-check"></span></span>
+                                </span>
                             </Button>
                         </div>
                     </div>
                 </ListGroupItem>
-
                 <ListGroupItem>
                     <div class="row">
-                        <div class="col">
-                            <Button Size=Size.Small Color=Color.Success Outline Float=Float.End Clicked="@(() => AddAllParticipants())">
-                                <span class="oi oi-flash"></span> Add All!
-                            </Button>
-                        </div>
                     </div>
                 </ListGroupItem>
-
             </ListGroup>
         </div>
-        <div class="col-6">
-            <ListGroup Float=Float.End>
+        <div class="col">
+            <ListGroup Float=Float.Default Overflow=Overflow.Auto Height="Height.Is75" Border=Border.Dark>
                 <ListGroupItem>
                     <div class=row>
                         <div class="col">
-                            <Button Size=Size.Small Color="Color.Danger" Outline Float="Float.End" Clicked="@(() => RemoveAllParticipants())">
+                            <Button Size=Size.ExtraSmall Color="Color.Danger" Outline Float="Float.End" Clicked="@(() => RemoveAllParticipants())">
                                 <span class="oi oi-delete small"></span>   Remove all
                             </Button>
                         </div>
@@ -68,8 +67,5 @@
                 }
             </ListGroup>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-12"><span></span></div>
     </div>
 </div>

@@ -4,8 +4,8 @@
 html, body {
     height: 100vh;
     text-align: center;
-    /*background-image: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)), url('../static/laptop.png');
-    background-repeat: repeat-x repeat-y;*/
+    background-image: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)), url('../static/laptop.png');
+    background-repeat: repeat-x repeat-y;
     font-family: 'Press Start 2P', Courier New, Courier, monospace !important;
 }
 
