@@ -6,12 +6,12 @@
                 <ListGroupItem TextOverflow=TextOverflow.Wrap>
                     <div class="row">
                         <div class="col">
-                            <Button Size=Size.ExtraSmall Color=Color.Success Outline Float=Float.End Clicked="@(() => AddAllParticipants())">
+                            <Button Size=Size.Small Color=Color.Success Class="nes-btn is-success" Float=Float.End Clicked="@(() => AddAllParticipants())">
                                 <span class="oi oi-flash"></span> Add All!
                             </Button>
                         </div>
                         <div class="col">
-                            <Button Color="Color.Danger" Outline Float=Float.End Size=Size.ExtraSmall Clicked="@(() => ClearParticipantsReady())">
+                            <Button Color="Color.Danger" Class="nes-btn is-danger" Float=Float.End Size=Size.Small Clicked="@(() => ClearParticipantsReady())">
                                 <Icon Name="IconName.Delete"></Icon>    Remove all
                             </Button>
                         </div>
@@ -28,9 +28,6 @@
                     </ListGroupItem>
                 }
                 <ListGroupItem>
-@*
-                </ListGroupItem>
-                <ListGroupItem>*@
                     <div class="row">
                     </div>
                 </ListGroupItem>
@@ -41,7 +38,7 @@
                 <ListGroupItem>
                     <div class=row>
                         <div class="col">
-                            <Button Size=Size.ExtraSmall Color="Color.Danger" Outline Float="Float.End" Clicked="@(() => RemoveAllParticipants())">
+                            <Button Size=Size.Small Class="nes-btn is-danger" Color="Color.Danger" Float="Float.End" Clicked="@(() => RemoveAllParticipants())">
                                 <span class="oi oi-delete small"></span>   Remove all
                             </Button>
                         </div>
@@ -62,16 +59,12 @@
     <div class="row">
         <div class="col">
             <div class="row">
-                <div class="col-6">
-                    <TextEdit Placeholder="Add new..." @bind-Text="newTeamMember" MaxLength="20" Border="Border.Dark" />
-                </div>
-                <div class="col" >
-                    <Button Size=Size.ExtraSmall Clicked="@(() => AddParticipantReady(newTeamMember))">
-                        <span class="nes-badge is-icon is-small">
-                            <span class="oi oi-check"></span>
-                        </span>
+                <div class="col">
+                    <TextEdit Placeholder="Add new..." @bind-Text="newTeamMember" MaxLength="20" Border=Border.Dark Float=Float.Start Width=Width.Is75 id="memberInput" />
+                    <Button Size=Size.ExtraSmall Class="nes-btn is-success" Float=Float.End Clicked="@(() => AddParticipantReady(newTeamMember))" id="inputButton">
+                        Add
                     </Button>
-                </div>
+                </div>                    
             </div>
         </div>
         <div class="col"></div>
