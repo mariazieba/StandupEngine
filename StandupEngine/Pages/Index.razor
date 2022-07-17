@@ -2,13 +2,11 @@
 @using StandupEngine.Services
 @using StandupEngine.Components
 @using System.Text.Json
-@inject IEngine _engine
+@inject Engine _engine
 @inject HttpClient _httpClient
+@inject IJSRuntime JsRuntime
 
 <div class="container">
-    <div class="row bg-light p-3 rounded mb-3" id="title">
-        <h1>Welcome to Dad Joke powered daily standup engine!</h1>
-    </div>
     <div class="row">
         <CascadingValue Value="CurrentText">
             <DialogueJumbotron />
@@ -24,14 +22,24 @@
         </div>
         <div class="col"></div>
     </div>
+    @if (ShowProgress)
+    {
+        <div class="row">
+            <Progress>
+                <ProgressBar Animated Value=@CurrentProgress></ProgressBar>
+            </Progress>
+        </div>
+    }
 </div>
 
 @code {
 
     [CascadingParameter]
     public string CurrentText { get; set; }
-    [CascadingParameter]
+
     private bool ShowProgress { get; set; } = false;
+
+    private int CurrentProgress { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
@@ -41,14 +49,48 @@
     }
 
     private async Task StartShuffling()
+    {   
+        CurrentText = await GetJoke();
+        await Task.Delay(1000);
+
+        TriggerProgressBar();
+        await FakeProgress();
+
+        CurrentText = GetOrderText();
+    }
+
+    private async Task<string> GetJoke()
+    {
+        var result = await _engine.GetJokeAsync(false);
+        StateHasChanged();
+        return result;
+    }
+
+    private string GetOrderText()
+    {
+        var result = _engine.GetMeetingOrder();
+        StateHasChanged();
+        return result;
+    }
+
+    private void TriggerProgressBar()
     {
         ShowProgress = true;
         StateHasChanged();
-
-        CurrentText = await _engine.GetJokeAsync(false);
-        Thread.Sleep(5000);
-        CurrentText = _engine.GetMeetingOrder();
     }
 
+    private async Task FakeProgress()
+    {
+        for (int i = 0; i <= 100; i += 20)
+        {
+            CurrentProgress = i;
+            StateHasChanged();
+            await Task.Delay(1000);
+        }
 
-}
+        ShowProgress = false;
+        StateHasChanged();
+        CurrentProgress = 0;
+    }
+
+    }

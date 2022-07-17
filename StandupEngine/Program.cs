@@ -2,10 +2,8 @@ using Blazored.LocalStorage;
 using Blazorise;
 using Blazorise.Bootstrap5;
 using Blazorise.Icons.FontAwesome;
-using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
-using Microsoft.Extensions.FileProviders;
 using StandupEngine;
 using StandupEngine.Services;
 
@@ -23,8 +21,7 @@ builder.Services
     .AddBootstrap5Providers()
     .AddFontAwesomeIcons();
 
-builder.Services.AddSingleton<IEngine, Engine>();
-
+builder.Services.AddSingleton<Engine>();
 builder.Services.AddBlazoredLocalStorage();
 
 

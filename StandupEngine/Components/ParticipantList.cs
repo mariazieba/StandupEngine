@@ -14,16 +14,13 @@ namespace StandupEngine.Components
         */
 
         [Inject]
-        public IEngine Engine { get; set; }
+        public Engine Engine { get; set; }
 
         [Inject]
         public ISyncLocalStorageService LocalStorage { get; set; }  
 
         private string selectedReadyItem;
         private string? newTeamMember;
-
-        private List<string> ParticipantsReady = new();
-        private List<string> Participants = new();
 
         private const string ParticipantsReadyKey = "ParticipantsReady";
                
@@ -33,33 +30,33 @@ namespace StandupEngine.Components
 
             if (!string.IsNullOrEmpty(storedParticipantsReady))
             {
-                ParticipantsReady = JsonSerializer.Deserialize<List<string>>(storedParticipantsReady);
+                Engine.ParticipantsReady = JsonSerializer.Deserialize<List<string>>(storedParticipantsReady);
             }
             else
             {
                 LocalStorage.SetItem(ParticipantsReadyKey, "");
             }
 
-            selectedReadyItem = ParticipantsReady.FirstOrDefault();
+            selectedReadyItem = Engine.ParticipantsReady.FirstOrDefault();
         }
 
         public void ClearReadyList()
         {
-            ParticipantsReady.Clear();
+            Engine.ParticipantsReady.Clear();
             LocalStorage.RemoveItem(ParticipantsReadyKey);
             StateHasChanged();
         }
 
         public void AddParticipantReady(string participant)
         {
-            if (participant is null || ParticipantsReady.Contains(participant))
+            if (participant is null || Engine.ParticipantsReady.Contains(participant))
             {
                 newTeamMember = string.Empty;
                 return;
-            }               
+            }
 
-            ParticipantsReady.Add(participant);
-            var participantsReadyJson = JsonSerializer.Serialize(ParticipantsReady);
+            Engine.ParticipantsReady.Add(participant);
+            var participantsReadyJson = JsonSerializer.Serialize(Engine.ParticipantsReady);
             LocalStorage.SetItem(ParticipantsReadyKey, participantsReadyJson);
             newTeamMember = string.Empty;
             StateHasChanged();
@@ -67,38 +64,42 @@ namespace StandupEngine.Components
 
         public void AddAllParticipants()
         {
-            Participants.AddRange(ParticipantsReady);
+            Engine.Participants.AddRange(Engine.ParticipantsReady);
+            Engine.Participants = Engine.Participants.Distinct().ToList();
             StateHasChanged();
         }
 
         public void RemoveParticipantReady(string participant, bool all = false)
-        {            
-            ParticipantsReady.Remove(participant);
-            LocalStorage.SetItem(ParticipantsReadyKey, JsonSerializer.Serialize(ParticipantsReady));            
+        {
+            Engine.ParticipantsReady.Remove(participant);
+            LocalStorage.SetItem(ParticipantsReadyKey, JsonSerializer.Serialize(Engine.ParticipantsReady));            
             StateHasChanged();
         }
 
         public void ClearParticipantsReady()
         {
-            ParticipantsReady.Clear();
+            Engine.ParticipantsReady.Clear();
             LocalStorage.RemoveItem(ParticipantsReadyKey);
             StateHasChanged();
         }
 
         public void AddParticipant(string participant)
         {
-            Participants.Add(participant);
-            StateHasChanged();
+            if (!Engine.Participants.Contains(participant))
+            {
+                Engine.Participants.Add(participant);
+                StateHasChanged();
+            }            
         }
         public void RemoveParticipant(string participant)
         {
-            Participants.Remove(participant);
+            Engine.Participants.Remove(participant);
             StateHasChanged();
         }
 
         public void RemoveAllParticipants()
         {
-            Participants.Clear();
+            Engine.Participants.Clear();
             StateHasChanged();
         }
 

@@ -4,8 +4,8 @@
 html, body {
     height: 100vh;
     text-align: center;
-    background-image: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)), url('../static/laptop.png');
-    background-repeat: repeat-x repeat-y;
+    /*background-image: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)), url('../static/laptop.png');
+    background-repeat: repeat-x repeat-y;*/
     font-family: 'Press Start 2P', Courier New, Courier, monospace !important;
 }
 
@@ -38,6 +38,16 @@ a, .btn-link {
 
 .validation-message {
     color: red;
+}
+
+#jumbotron-wrapper {
+    position: sticky;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 32px;
+    left: 0;
+    width: 75%;
 }
 
 #blazor-error-ui {
@@ -83,34 +93,6 @@ a, .btn-link {
         margin-right: -1px;
         line-height: 1;
     }
-
-.bg-black {
-    background-color: #111;
-}
-
-.operator-chicken {
-    background: url('/static/chicken-thonk.png') bottom right no-repeat transparent;
-}
-
-.operator-blob {
-    background: url('/static/chonky-blob.png') bottom right no-repeat transparent;
-}
-
-.operator-sonja {
-    background: url('/static/sonja.png') bottom right no-repeat transparent;
-}
-
-.operator-flynn {
-    background: url('/static/flynn.png') bottom right no-repeat transparent;
-}
-
-.operator-business {
-    background: url('/static/man.png') bottom right no-repeat transparent;
-}
-
-.operator-shadow {
-    background: url('/static/shadow.png') bottom right no-repeat transparent;
-}
 
 .container-fluid {
     padding: 20px;

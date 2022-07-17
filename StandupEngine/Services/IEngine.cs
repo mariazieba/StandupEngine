@@ -6,7 +6,7 @@ namespace StandupEngine.Services
     {
         public Task<string> GetJokeAsync(bool firstTimeRender);
         public string GetSingleGreeting(string participant);
-        public string GetMeetingOrder(List<string> registeredParticipants);
+        public string GetMeetingOrder();
         public string GetTwist();
         public void LoadPrompts(string jsonPrompts);
     }

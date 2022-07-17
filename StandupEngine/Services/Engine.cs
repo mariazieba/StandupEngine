@@ -5,6 +5,9 @@ namespace StandupEngine.Services
 {
     public class Engine : IEngine
     {
+        public List<string> ParticipantsReady = new();
+        public List<string> Participants = new();
+
         private PromptObject? _allPrompts;
         private Random _random;
 
@@ -18,10 +21,16 @@ namespace StandupEngine.Services
             return await FetchTheJoke(firstTimeRender);
         }
 
-        public string GetMeetingOrder(List<string> registeredParticipants)
+        public string GetMeetingOrder()
         {
-            var shuffledList = registeredParticipants.OrderBy(x => _random.Next()).ToList();
-            return $"Allright! I dag bestemmer jeg rekkefølgen! Hva med ${ string.Join(" ,så ", shuffledList)}?";
+            if (!Participants.Any())
+            {
+                return "No participants? Cool, let's start the weekend!";
+            }
+            
+            var shuffledList = Participants.OrderBy(x => _random.Next()).ToList();
+            
+            return $"Wooohoooo! Let's make it clockwise, starting from {shuffledList[0]}?";
         }
 
         public string GetSingleGreeting(string participant)

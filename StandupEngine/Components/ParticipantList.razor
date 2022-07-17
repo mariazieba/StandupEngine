@@ -1,13 +1,10 @@
-﻿<div class="container">
+﻿<div class="container position-relative">
     <div class="row">
-        <div class="col-5">
-            <ListGroup Mode=@GetListMode() @bind-SelectedItem="selectedReadyItem">
+        <div class="col-6">
+            <ListGroup Mode=@GetListMode() @bind-SelectedItem="selectedReadyItem" Float=Float.Start>
 
                 <ListGroupItem>
                     <div class="row">
-                        <div class="col">
-                            <Button Color="Color.Success" Outline Float="Float.Start" Size=Size.Small><Icon Name="IconName.Smile"></Icon>   Select all</Button>
-                        </div>
                         <div class="col">
                             <Button Color="Color.Danger" Outline Float="Float.End" Size=Size.Small Clicked="@(() => ClearParticipantsReady())">
                                 <Icon Name="IconName.Delete"></Icon>    Remove all
@@ -16,9 +13,9 @@
                     </div>
                 </ListGroupItem>
 
-                @foreach (var ready in ParticipantsReady)
+                @foreach (var ready in Engine.ParticipantsReady)
                 {
-                    <ListGroupItem Name="@($"{ready}{ParticipantsReady.IndexOf(ready)}")" Clicked="@(() => AddParticipant(ready))">
+                    <ListGroupItem Name="@($"{ready}{Engine.ParticipantsReady.IndexOf(ready)}")" Clicked="@(() => AddParticipant(ready))">
                         @ready
                         <Button Color=Color.Default Size=Size.Small Type=ButtonType.Link Float=Float.End Clicked="@(() => RemoveParticipantReady(ready))">
                             <span class="oi oi-delete"></span>
@@ -28,7 +25,7 @@
 
                 <ListGroupItem>
                     <div class="row">
-                        <div class="col"><TextEdit Placeholder="Add a new team member..." @bind-Text="newTeamMember" /></div>
+                        <div class="col"><TextEdit Placeholder="Add new..." @bind-Text="newTeamMember" MaxLength="20" /></div>
                         <div class="col">
                             <Button Size=Size.Small Color=Color.Secondary Outline Clicked="@(() => AddParticipantReady(newTeamMember))">
                                 <span class="oi oi-check"></span>
@@ -49,9 +46,8 @@
 
             </ListGroup>
         </div>
-        <div class="col-2"></div>
-        <div class="col-5">
-            <ListGroup>
+        <div class="col-6">
+            <ListGroup Float=Float.End>
                 <ListGroupItem>
                     <div class=row>
                         <div class="col">
@@ -61,7 +57,7 @@
                         </div>
                     </div>
                 </ListGroupItem>
-                @foreach (var participant in Participants)
+                @foreach (var participant in Engine.Participants)
                 {
                     <ListGroupItem>
                         @participant
