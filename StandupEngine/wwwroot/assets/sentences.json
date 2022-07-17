@@ -17,14 +17,14 @@
     "Surprise! {name} is with us!",
     "A round of applause for {name}!",
     "{name} buys the next round.",
-    "Wooho, did {name} wake up so early?"
+    "Woohoo, did {name} wake up so early?"
   ],
   "modifiers": [
     "This time try to rhyme.",
     "Speak no longer than 60 seconds. READY, STEADY, GO!",
     "Try speaking with a British accent, I dare you.",
-    "Today we speak like a dog would speak!",
-    "TIME MACHINE! What you plan on doing tomorrow?",
+    "Today we speak like an excited kid would!",
+    "TIME MACHINE! What are your plans for tomorrow?",
     "Let's have a contest: let's use as few words as possible. Who will be the winner?"
   ]
 }

@@ -27,10 +27,16 @@ namespace StandupEngine.Services
             {
                 return "No participants? Cool, let's start the weekend!";
             }
-            
+
             var shuffledList = Participants.OrderBy(x => _random.Next()).ToList();
-            
-            return $"Wooohoooo! Let's make it clockwise, starting from {shuffledList[0]}?";
+
+            string[] orders = { $"Let's try this: { string.Join(", ", shuffledList) }." ,
+                                $"You can't tell, but this is backwards: { string.Join(", ", shuffledList) }.",
+                                $"Wooohoooo! Let's make it clockwise! {shuffledList[0]} starts talking and then chooses who's next every time?",
+                                $"Let's go counterclockwise, and {shuffledList[0]} goes first. Everyone chooses the next speaker."
+            };
+
+            return $"{orders[_random.Next(orders.Length)]} \n{GetTwist()}";
         }
 
         public string GetSingleGreeting(string participant)

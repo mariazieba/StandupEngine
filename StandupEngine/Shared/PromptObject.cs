@@ -6,5 +6,4 @@
         public string[] added { get; set; }
         public string[] modifiers { get; set; }
     }
-
 }
