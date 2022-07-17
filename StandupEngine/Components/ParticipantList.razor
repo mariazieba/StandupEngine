@@ -28,18 +28,9 @@
                     </ListGroupItem>
                 }
                 <ListGroupItem>
-                    <div class="row">
-                        <div class="col"><TextEdit Placeholder="Add new..." @bind-Text="newTeamMember" MaxLength="20" /></div>
-                        <div class="col">
-                            <Button Size=Size.ExtraSmall Clicked="@(() => AddParticipantReady(newTeamMember))">
-                                <span class="nes-badge is-icon is-small">
-                                    <span class="is-warning"><span class="oi oi-check"></span></span>
-                                </span>
-                            </Button>
-                        </div>
-                    </div>
+@*
                 </ListGroupItem>
-                <ListGroupItem>
+                <ListGroupItem>*@
                     <div class="row">
                     </div>
                 </ListGroupItem>
@@ -67,5 +58,22 @@
                 }
             </ListGroup>
         </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="row">
+                <div class="col-6">
+                    <TextEdit Placeholder="Add new..." @bind-Text="newTeamMember" MaxLength="20" Border="Border.Dark" />
+                </div>
+                <div class="col" >
+                    <Button Size=Size.ExtraSmall Clicked="@(() => AddParticipantReady(newTeamMember))">
+                        <span class="nes-badge is-icon is-small">
+                            <span class="oi oi-check"></span>
+                        </span>
+                    </Button>
+                </div>
+            </div>
+        </div>
+        <div class="col"></div>
     </div>
 </div>

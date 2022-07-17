@@ -19,6 +19,9 @@ namespace StandupEngine.Components
         [Inject]
         public ISyncLocalStorageService LocalStorage { get; set; }  
 
+        [Parameter]
+        public EventCallback<string> OnGreetingSet { get; set; }
+
         private string selectedReadyItem;
         private string? newTeamMember;
 
@@ -56,8 +59,10 @@ namespace StandupEngine.Components
             }
 
             Engine.ParticipantsReady.Add(participant);
+
             var participantsReadyJson = JsonSerializer.Serialize(Engine.ParticipantsReady);
             LocalStorage.SetItem(ParticipantsReadyKey, participantsReadyJson);
+
             newTeamMember = string.Empty;
             StateHasChanged();
         }
@@ -88,6 +93,7 @@ namespace StandupEngine.Components
             if (!Engine.Participants.Contains(participant))
             {
                 Engine.Participants.Add(participant);
+                OnGreetingSet.InvokeAsync(participant);
                 StateHasChanged();
             }            
         }

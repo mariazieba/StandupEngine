@@ -16,9 +16,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Update="wwwroot\assets\operators.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Update="wwwroot\assets\sentences.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

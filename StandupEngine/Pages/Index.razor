@@ -13,7 +13,7 @@
         </CascadingValue>
     </div>
     <div class="row">
-        <ParticipantList />
+        <ParticipantList OnGreetingSet="GreetingSetHandler" />
     </div>
     <div class="row">
         <div class="col"></div>
@@ -49,7 +49,7 @@
     }
 
     private async Task StartShuffling()
-    {   
+    {
         CurrentText = await GetJoke();
         await Task.Delay(1000);
 
@@ -93,4 +93,9 @@
         CurrentProgress = 0;
     }
 
+    private void GreetingSetHandler(string participant)
+    {
+        CurrentText = _engine.GetSingleGreeting(participant);
+        StateHasChanged();
     }
+}
