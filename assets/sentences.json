@@ -1,0 +1,30 @@
+{
+  "added": [
+    "{name} arrived today!",
+    "{name} you look so cool today.",
+    "Oh wow, if it isn't {name}!",
+    "{name} reports for duty.",
+    "As usual, {name} is here.",
+    "Aaaaaand {name}, yeah!",
+    "Welcome aboard, {name}!",
+    "Busy bee {name} arrived.",
+    "Never a good day without you, {name}!",
+    "Wow, {name}, long time no see! Yo!",
+    "Good morning, {name}!",
+    "Can we try without {name} this time?",
+    "You were supposed to be on vacation, {name}!",
+    "Now {name} tells a joke.",
+    "Surprise! {name} is with us!",
+    "A round of applause for {name}!",
+    "{name} buys the next round.",
+    "Woohoo, did {name} wake up so early?"
+  ],
+  "modifiers": [
+    "This time try to rhyme.",
+    "Speak no longer than 60 seconds. READY, STEADY, GO!",
+    "Try speaking with a British accent, I dare you.",
+    "Today we speak like an excited kid would!",
+    "TIME MACHINE! What are your plans for tomorrow?",
+    "Let's have a contest: let's use as few words as possible. Who will be the winner?"
+  ]
+}
