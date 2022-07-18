@@ -5,7 +5,7 @@ html, body {
     text-align: center;
     background-image: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)), url('../static/alien-space-character-of-pixels-for-a-game.png');
     background-repeat: repeat-x repeat-y;
-    font-family: Courier New, Courier, monospace !important;
+    font-family: 'Roboto Mono', monospace !important;
 }
 
 h1:focus {

@@ -56,7 +56,7 @@
     private async Task StartShuffling()
     {
         CurrentText = await GetJoke();
-        await Task.Delay(1000);
+        await Task.Delay(500);
 
         TriggerProgressBar();
         await FakeProgress();
