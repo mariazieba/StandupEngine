@@ -27,11 +27,19 @@
                         </Button>
                     </ListGroupItem>
                 }
-                <ListGroupItem>
-                    <div class="row">
-                    </div>
-                </ListGroupItem>
             </ListGroup>
+            <div class="row">
+                <div class="col">
+                    <div class="input-group mb-3">
+                        <TextEdit Placeholder="Add new..." @bind-Text="newTeamMember" MaxLength="20" Border=Border.Dark Float=Float.Start Width=Width.Is75 id="memberInput" />
+                        <div class="input-group-append">
+                            <Button Size=Size.ExtraSmall Class="nes-btn is-success" Float=Float.End Clicked="@(() => AddParticipantReady(newTeamMember))" id="inputButton">
+                                Add
+                            </Button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="col">
             <ListGroup Float=Float.Default Overflow=Overflow.Auto Height="Height.Is75" Border=Border.Dark>
@@ -55,18 +63,5 @@
                 }
             </ListGroup>
         </div>
-    </div>
-    <div class="row">
-        <div class="col">
-            <div class="row">
-                <div class="col">
-                    <TextEdit Placeholder="Add new..." @bind-Text="newTeamMember" MaxLength="20" Border=Border.Dark Float=Float.Start Width=Width.Is75 id="memberInput" />
-                    <Button Size=Size.ExtraSmall Class="nes-btn is-success" Float=Float.End Clicked="@(() => AddParticipantReady(newTeamMember))" id="inputButton">
-                        Add
-                    </Button>
-                </div>                    
-            </div>
-        </div>
-        <div class="col"></div>
     </div>
 </div>
