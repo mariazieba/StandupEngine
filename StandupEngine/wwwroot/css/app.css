@@ -5,7 +5,19 @@ html, body {
     text-align: center;
     background-image: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)), url('../static/alien-space-character-of-pixels-for-a-game.png');
     background-repeat: repeat-x repeat-y;
-    font-family: 'Roboto Mono', monospace !important;
+    font-family: 'Press Start 2P', 'Roboto Mono', monospace !important;
+}
+
+@media (max-width: 600px) {
+    html, body {
+        font-family: 'Roboto Mono', monospace !important;
+    }
+}
+
+@media-phone {
+    html, body {
+        font-family: 'Roboto Mono', monospace !important;
+    }
 }
 
 h1:focus {
