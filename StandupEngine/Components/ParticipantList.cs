@@ -1,5 +1,6 @@
 ﻿using Blazored.LocalStorage;
 using Blazorise;
+using Ganss.XSS;
 using Microsoft.AspNetCore.Components;
 using StandupEngine.Services;
 using System.Text.Json;
@@ -47,13 +48,16 @@ namespace StandupEngine.Components
 
         public void AddParticipantReady(string participant)
         {
-            if (participant is null || Engine.ParticipantsReady.Contains(participant))
+            var sanitizer = new HtmlSanitizer();
+            var sanitizedInput = sanitizer.Sanitize(participant);
+
+            if (sanitizedInput is null || Engine.ParticipantsReady.Contains(sanitizedInput))
             {
                 newTeamMember = string.Empty;
                 return;
             }
 
-            Engine.ParticipantsReady.Add(participant);
+            Engine.ParticipantsReady.Add(sanitizedInput);
 
             var participantsReadyJson = JsonSerializer.Serialize(Engine.ParticipantsReady);
             LocalStorage.SetItem(ParticipantsReadyKey, participantsReadyJson);
